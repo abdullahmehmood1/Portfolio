@@ -1,0 +1,337 @@
+.contact {
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.bgAccent {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────────── */
+.header {
+    margin-bottom: 3.5rem;
+}
+
+.sectionLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: 0.75rem;
+}
+
+.sectionLabel::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+    border-radius: 2px;
+}
+
+.title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin: 0;
+    line-height: 1.8;
+}
+
+/* ─── Grid ───────────────────────────────────────────────────────────────────── */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* ─── Info Card ──────────────────────────────────────────────────────────────── */
+.infoCard {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 2rem;
+}
+
+.infoTitle {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.infoText {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+}
+
+.contactList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.contactItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+}
+
+.contactIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-medium);
+    border-radius: 8px;
+    color: var(--accent-primary);
+    flex-shrink: 0;
+    margin-top: 1px;
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+}
+
+.contactLabel {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+}
+
+.contactValue {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+a.contactValue:hover {
+    color: var(--accent-secondary);
+}
+
+.availability {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #10b981; /* Emerald green */
+    padding: 0.6rem 1rem;
+    background: #ecfdf5; /* Light emerald */
+    border: 1px solid #d1fae5;
+    border-radius: 8px;
+}
+
+.availDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulse-avail 2s ease-in-out infinite;
+}
+
+@keyframes pulse-avail {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ─── Form ───────────────────────────────────────────────────────────────────── */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: #ffffff;
+    border: 1px solid var(--border-medium);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    outline: none;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.input:focus,
+.textarea:focus {
+    border-color: var(--accent-primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.textarea {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.submitBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent-primary);
+    color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+    min-height: 52px;
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: #1d4ed8;
+    color: #ffffff;
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
+}
+
+.submitBtn:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+/* ─── Spinner ────────────────────────────────────────────────────────────────── */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ─── Success Card ───────────────────────────────────────────────────────────── */
+.successCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 3rem 2rem;
+    background: #f0fdf4; /* Light green background */
+    border: 1px solid #bbf7d0; /* Light green border */
+    border-radius: 12px;
+    min-height: 300px;
+}
+
+.successCard h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.successCard p {
+    color: var(--text-secondary);
+    max-width: 300px;
+    margin: 0;
+}
+
+.resetBtn {
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-medium);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+}
+
+.resetBtn:hover {
+    color: var(--text-primary);
+    background: var(--bg-hover);
+    border-color: var(--border-glow);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+}

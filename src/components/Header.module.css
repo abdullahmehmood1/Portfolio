@@ -1,0 +1,139 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    transition: all 0.3s ease;
+    padding: 30px 0;
+}
+
+.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: 0px 4px 20px 0px rgba(15, 23, 42, 0.05);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo, .logoLight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo span, .logoLight span {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logoLight span {
+    color: var(--text-primary);
+}
+
+.logoIcon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    width: 24px;
+    height: 24px;
+    transform: rotate(45deg);
+}
+
+.logoDot {
+    width: 11px;
+    height: 11px;
+    background: var(--gradient-brand);
+    border-radius: 2px;
+}
+
+.menuControls {
+    display: flex;
+}
+
+.menuToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1001;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    max-width: 80vw;
+    background: var(--bg-primary);
+    border-left: 1px solid var(--border-subtle);
+    z-index: 1002;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -5px 0 30px rgba(15, 23, 42, 0.1);
+}
+
+.sidebarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+}
+
+.sidebarLinks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebarLink {
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: left;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+    width: 100%;
+}
+
+.sidebarLink:hover {
+    color: var(--accent-primary);
+}
