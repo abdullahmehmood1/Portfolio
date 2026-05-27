@@ -2,52 +2,55 @@
     padding: 6rem 0;
     position: relative;
     overflow: hidden;
+    background: var(--bg-primary);
 }
 
 .bgAccent {
     position: absolute;
-    bottom: -10%;
+    bottom: -5%;
     left: 50%;
     transform: translateX(-50%);
-    width: 800px;
-    height: 400px;
+    width: 900px;
+    height: 500px;
     border-radius: 50%;
-    background: radial-gradient(ellipse, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(37, 99, 235, 0.06) 0%, transparent 65%);
     pointer-events: none;
+    filter: blur(20px);
 }
 
-/* ─── Header ─────────────────────────────────────────────────────────────────── */
+/* ─── Header ─────────────────────────────────────────────────── */
 .header {
     margin-bottom: 3.5rem;
+    text-align: center;
 }
 
 .sectionLabel {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
+    gap: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent-primary);
     margin-bottom: 0.75rem;
 }
 
-.sectionLabel::before {
-    content: '';
+.sectionLabel span {
     display: inline-block;
-    width: 20px;
+    width: 18px;
     height: 2px;
-    background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+    background: var(--gradient-brand);
     border-radius: 2px;
 }
 
 .title {
     font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-weight: 900;
+    letter-spacing: -0.04em;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
+    line-height: 1.1;
 }
 
 .titleAccent {
@@ -58,83 +61,119 @@
 }
 
 .subtitle {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--text-secondary);
-    max-width: 500px;
-    margin: 0;
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.7;
 }
 
-/* ─── Grid ───────────────────────────────────────────────────────────────────── */
+/* ─── Grid ────────────────────────────────────────────────────── */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 1.75rem;
     margin-bottom: 3rem;
 }
 
-/* ─── Card ───────────────────────────────────────────────────────────────────── */
+/* ─── Card ────────────────────────────────────────────────────── */
 .card {
     background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border-subtle);
-    border-radius: 18px;
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    cursor: default;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    border-color: var(--border-medium);
-    box-shadow: var(--shadow-lg);
+    border-color: var(--border-glow);
+    box-shadow: var(--shadow-glow);
 }
 
-/* ─── Card Visual ────────────────────────────────────────────────────────────── */
+/* ─── Card Visual (Image area) ────────────────────────────────── */
 .cardVisual {
     position: relative;
-    height: 180px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: 1.25rem;
+    height: 220px;
+    overflow: hidden;
+}
+
+.projectImage {
+    object-fit: cover;
+    transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card:hover .projectImage {
+    transform: scale(1.08);
+}
+
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.75;
+    mix-blend-mode: multiply;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .imageOverlay {
+    opacity: 0.65;
 }
 
 .projectNumber {
     position: absolute;
-    top: 1.25rem;
-    left: 1.5rem;
-    font-size: 3.5rem;
+    top: 1rem;
+    left: 1.25rem;
+    font-size: 3.2rem;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.92);
     line-height: 1;
     letter-spacing: -0.05em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
 .cardLinks {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
     display: flex;
     gap: 0.5rem;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover .cardLinks {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .iconBtn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: rgba(0, 0, 0, 0.25);
+    width: 34px;
+    height: 34px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     color: #fff;
-    backdrop-filter: blur(8px);
-    transition: all 0.2s;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .iconBtn:hover {
-    background: rgba(0, 0, 0, 0.45);
+    background: var(--accent-primary);
+    transform: scale(1.12);
     color: #fff;
-    transform: scale(1.05);
 }
 
-/* ─── Card Body ──────────────────────────────────────────────────────────────── */
+/* ─── Card Body ───────────────────────────────────────────────── */
 .cardBody {
     padding: 1.5rem;
     display: flex;
@@ -143,22 +182,23 @@
 }
 
 .cardTitle {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 0.6rem;
     letter-spacing: -0.02em;
+    line-height: 1.3;
 }
 
 .cardDesc {
     font-size: 0.875rem;
     color: var(--text-secondary);
     line-height: 1.7;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.2rem;
     flex: 1;
 }
 
-/* ─── Tags ───────────────────────────────────────────────────────────────────── */
+/* ─── Tags ────────────────────────────────────────────────────── */
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -167,61 +207,44 @@
 }
 
 .tag {
-    padding: 0.25rem 0.65rem;
+    padding: 0.22rem 0.65rem;
     border-radius: 999px;
-    font-size: 0.72rem;
-    font-weight: 600;
-    border: 1px solid transparent;
-    letter-spacing: 0.01em;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border: 1px solid;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s;
 }
 
-/* ─── Card CTA ───────────────────────────────────────────────────────────────── */
+.tag:hover {
+    transform: scale(1.05);
+}
+
+/* ─── Card CTA ────────────────────────────────────────────────── */
 .cardCta {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    font-size: 0.85rem;
-    font-weight: 600;
+    gap: 0.3rem;
+    font-size: 0.82rem;
+    font-weight: 700;
     color: var(--text-secondary);
-    transition: all 0.2s;
+    transition: all 0.2s ease;
     margin-top: auto;
+    text-decoration: none;
 }
 
 .cardCta:hover {
-    color: var(--text-primary);
+    color: var(--accent-primary);
     gap: 0.5rem;
 }
 
-/* ─── More CTA ───────────────────────────────────────────────────────────────── */
+/* ─── More CTA ────────────────────────────────────────────────── */
 .moreCta {
     display: flex;
     justify-content: center;
 }
 
-.moreBtn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.875rem 2rem;
-    background: #ffffff;
-    border: 1px solid var(--border-medium);
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    transition: all 0.2s;
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
-}
-
-.moreBtn:hover {
-    color: var(--accent-primary);
-    border-color: var(--accent-primary);
-    background: #ffffff;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px rgba(15, 23, 42, 0.05);
-}
-
-/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+/* ─── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 1024px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
@@ -231,5 +254,6 @@
 @media (max-width: 640px) {
     .grid {
         grid-template-columns: 1fr;
+        gap: 1.25rem;
     }
 }
